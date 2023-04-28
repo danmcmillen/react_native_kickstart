@@ -1,8 +1,8 @@
-import { createUserModel } from '../models/UserModel';
-import { UserApiDataSource } from '../dataSources/UserApiDataSource';
-import createUserRepository from './UserRepository';
+import { createUserModel } from '../models/userModel';
+import { UserApiDataSource } from '../datasources/userApiDataSource';
+import createUserRepository from './userRepositoryImpl';
 
-describe('UserRepositoryImpl', () => {
+describe('userRepositoryImpl', () => {
   it('should find a user by id', async () => {
     const dataSource: UserApiDataSource = {
       fetchUserById: jest

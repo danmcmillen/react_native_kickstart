@@ -1,6 +1,6 @@
-import { createUser, User } from './User';
+import { createUser } from './user';
 
-describe('User', () => {
+describe('user', () => {
   it('should create a new user', () => {
     const user = createUser(1, 'John Doe', 'john@doe');
     expect(user.id).toBe(1);

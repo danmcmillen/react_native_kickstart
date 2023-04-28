@@ -1,4 +1,4 @@
-import { createUserModel, UserModel } from '../models/UserModel';
+import { createUserModel, UserModel } from '../models/userModel';
 
 export type UserApiDataSource = {
   fetchUserById: (id: number) => UserModel;

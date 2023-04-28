@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import noop from 'lodash';
 
-import userApiDataSource from '../../data/dataSources/UserApiDataSource';
-import createFindUserByIdUseCase from '../../domain/usecases/FindUserByIdUseCase';
-import { User } from '../../domain/entities/User';
-import createUserRepository from '../../data/repositories/UserRepository';
+import { User } from '../../domain/entities/user';
+import { ServiceContext } from '../../configuration/context/ServiceContext';
 
 export const UserScreen = () => {
   const [user, setUser] = useState<User | null>(null);
+  const services = useContext(ServiceContext);
 
   useEffect(() => {
     const fetchData = async () => {
-      const userRepository = createUserRepository(userApiDataSource);
-      const getUserByIdUseCase = createFindUserByIdUseCase(userRepository);
-      const user = await getUserByIdUseCase.execute(1);
-      setUser(user);
+      if (services?.userService) {
+        const user = await services.userService.findUserByIdUseCase.execute(1);
+        setUser(user);
+        return;
+      }
     };
 
     fetchData().catch(noop);

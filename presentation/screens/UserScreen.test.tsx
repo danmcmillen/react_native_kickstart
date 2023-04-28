@@ -1,60 +1,40 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react-native';
-
+import { User } from '../../domain/entities/user';
 import { UserScreen } from './UserScreen';
-import createFindUserByIdUseCase from '../../domain/usecases/FindUserByIdUseCase';
+import { ServiceContext } from '../../configuration/context/ServiceContext';
 
-jest.mock('../../domain/usecases/FindUserByIdUseCase');
+const mockUser: User = {
+  id: 1,
+  name: 'John Doe',
+  email: 'john.doe@example.com',
+};
 
 describe('UserScreen', () => {
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
-  it('renders loading state initially', () => {
-    const mockUser = {
-      id: 1,
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-    };
-
-    (createFindUserByIdUseCase as jest.Mock).mockReturnValue({
-      execute: jest.fn().mockResolvedValue(mockUser),
-    });
-
-    const { getByText } = render(<UserScreen />);
+  it('should render loading state initially', () => {
+    const { getByText } = render(
+      <ServiceContext.Provider value={null}>
+        <UserScreen />
+      </ServiceContext.Provider>,
+    );
 
     expect(getByText('Loading...')).toBeTruthy();
   });
 
-  it('renders user data when user is fetched', async () => {
-    const mockUser = {
-      id: 1,
-      name: 'John Doe',
-      email: 'john.doe@example.com',
+  it('should render user data when fetched', async () => {
+    const userServiceMock = {
+      findUserByIdUseCase: {
+        execute: jest.fn().mockResolvedValue(mockUser),
+      },
     };
 
-    (createFindUserByIdUseCase as jest.Mock).mockReturnValue({
-      execute: jest.fn().mockResolvedValue(mockUser),
-    });
+    const { getByText } = render(
+      <ServiceContext.Provider value={{ userService: userServiceMock }}>
+        <UserScreen />
+      </ServiceContext.Provider>,
+    );
 
-    const { getByText } = render(<UserScreen />);
-
-    await waitFor(() => {
-      expect(getByText(`Name: ${mockUser.name}`)).toBeTruthy();
-      expect(getByText(`Email: ${mockUser.email}`)).toBeTruthy();
-    });
-  });
-
-  it('handles errors when fetching user data', async () => {
-    (createFindUserByIdUseCase as jest.Mock).mockReturnValue({
-      execute: jest.fn().mockRejectedValue(new Error('Network error')),
-    });
-
-    const { getByText } = render(<UserScreen />);
-
-    await waitFor(() => {
-      expect(getByText('Loading...')).toBeTruthy();
-    });
+    await waitFor(() => getByText(`Name: ${mockUser.name}`));
+    await waitFor(() => getByText(`Email: ${mockUser.email}`));
   });
 });

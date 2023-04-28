@@ -1,6 +1,6 @@
-import { createUserModel, toEntity, UserModel } from './UserModel';
+import { createUserModel, toEntity, UserModel } from './userModel';
 
-describe('UserModel', () => {
+describe('userModel', () => {
   it('should create a user model', () => {
     const userModel = createUserModel(1, 'John Doe', 'john@doe.com');
     expect(userModel.id).toBe(1);

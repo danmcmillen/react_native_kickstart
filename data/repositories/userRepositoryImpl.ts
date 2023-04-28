@@ -1,11 +1,11 @@
-import { IUserRepository } from '../../domain/repositories/IUserRepository';
-import { User } from '../../domain/entities/User';
-import { UserApiDataSource } from '../dataSources/UserApiDataSource';
-import { toEntity, UserModel } from '../models/UserModel';
+import { UserRepository } from '../../domain/repositories/userRepository';
+import { User } from '../../domain/entities/user';
+import { UserApiDataSource } from '../datasources/userApiDataSource';
+import { toEntity, UserModel } from '../models/userModel';
 
 const createUserRepository = (
   userApiDataSource: UserApiDataSource
-): IUserRepository => {
+): UserRepository => {
   const findUserById = async (id: number): Promise<User | null> => {
     const userModel: UserModel = await userApiDataSource.fetchUserById(id);
     return toEntity(userModel);

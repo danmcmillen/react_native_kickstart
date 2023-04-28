@@ -1,6 +1,6 @@
-import userApiDataSource from './UserApiDataSource';
+import userApiDataSource from './userApiDataSource';
 
-describe('UserApiDataSource', () => {
+describe('userApiDataSource', () => {
   it('should fetch a user by id', async () => {
     const user = await userApiDataSource.fetchUserById(1);
     expect(user.id).toBe(1);

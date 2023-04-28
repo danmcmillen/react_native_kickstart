@@ -1,7 +1,7 @@
-import createFindUserByIdUseCase from './FindUserByIdUseCase';
-import { mockUserRepository } from '../repositories/IUserRepository.test';
+import createFindUserByIdUseCase from './findUserByIdUseCase';
+import { mockUserRepository } from '../repositories/userRepository.test';
 
-describe('GetUserByIdUseCase', () => {
+describe('findUserByIdUseCase', () => {
   it('should get user by id', async () => {
     // Arrange
     const userId = 123;

@@ -1,6 +1,6 @@
-import { IUserRepository } from './IUserRepository';
-import { createUser } from '../entities/User';
-export const mockUserRepository: jest.Mocked<IUserRepository> = {
+import { UserRepository } from './userRepository';
+import { createUser } from '../entities/user';
+export const mockUserRepository: jest.Mocked<UserRepository> = {
   findUserById: jest.fn(),
 };
 
