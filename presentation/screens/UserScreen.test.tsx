@@ -15,7 +15,7 @@ describe('UserScreen', () => {
     const { getByText } = render(
       <ServiceContext.Provider value={null}>
         <UserScreen />
-      </ServiceContext.Provider>,
+      </ServiceContext.Provider>
     );
 
     expect(getByText('Loading...')).toBeTruthy();
@@ -31,7 +31,7 @@ describe('UserScreen', () => {
     const { getByText } = render(
       <ServiceContext.Provider value={{ userService: userServiceMock }}>
         <UserScreen />
-      </ServiceContext.Provider>,
+      </ServiceContext.Provider>
     );
 
     await waitFor(() => getByText(`Name: ${mockUser.name}`));
