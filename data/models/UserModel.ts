@@ -1,4 +1,4 @@
-import { createUser, User } from "../../domain/entities/User";
+import { createUser, User } from '../../domain/entities/User';
 
 type UserModel = Readonly<{
   id: number;

@@ -3,16 +3,16 @@ import { View, Text } from 'react-native';
 import noop from 'lodash';
 
 import userApiDataSource from '../../data/dataSources/UserApiDataSource';
-import createFindUserByIdUseCase, { FindUserByIdUseCase } from '../../domain/usecases/FindUserByIdUseCase';
+import createFindUserByIdUseCase from '../../domain/usecases/FindUserByIdUseCase';
 import { User } from '../../domain/entities/User';
-import createUserRepository from "../../data/repositories/UserRepository";
+import createUserRepository from '../../data/repositories/UserRepository';
 
 export const UserScreen = () => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const userRepository = createUserRepository(userApiDataSource)
+      const userRepository = createUserRepository(userApiDataSource);
       const getUserByIdUseCase = createFindUserByIdUseCase(userRepository);
       const user = await getUserByIdUseCase.execute(1);
       setUser(user);

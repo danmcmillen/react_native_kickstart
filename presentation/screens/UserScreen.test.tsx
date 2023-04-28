@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react-native';
 
-import { UserScreen } from "./UserScreen";
+import { UserScreen } from './UserScreen';
 import createFindUserByIdUseCase from '../../domain/usecases/FindUserByIdUseCase';
 
 jest.mock('../../domain/usecases/FindUserByIdUseCase');

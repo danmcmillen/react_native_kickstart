@@ -1,4 +1,4 @@
-import createFindUserByIdUseCase, { FindUserByIdUseCase } from './FindUserByIdUseCase';
+import createFindUserByIdUseCase from './FindUserByIdUseCase';
 import { mockUserRepository } from '../repositories/IUserRepository.test';
 
 describe('GetUserByIdUseCase', () => {

@@ -2,7 +2,7 @@ import { createUserModel, UserModel } from '../models/UserModel';
 
 export type UserApiDataSource = {
   fetchUserById: (id: number) => UserModel;
-}
+};
 
 const userApiDataSource: UserApiDataSource = {
   fetchUserById: (id: number): UserModel => {
