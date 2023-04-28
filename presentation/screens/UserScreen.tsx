@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
+import noop from 'lodash';
 
-import { UserRepositoryImpl } from '../../data/repositories_impl/UserRepositoryImpl';
-import { UserApiDataSource } from '../../data/data_sources/UserApiDataSource';
-import { FindUserByIdUseCase } from '../../domain/usecases/FindUserByIdUseCase';
+import userApiDataSource from '../../data/dataSources/UserApiDataSource';
+import createFindUserByIdUseCase, { FindUserByIdUseCase } from '../../domain/usecases/FindUserByIdUseCase';
 import { User } from '../../domain/entities/User';
+import createUserRepository from "../../data/repositories/UserRepository";
 
 export const UserScreen = () => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const dataSource = new UserApiDataSource();
-      const userRepository = new UserRepositoryImpl(dataSource);
-      const getUserByIdUseCase = new FindUserByIdUseCase(userRepository);
+      const userRepository = createUserRepository(userApiDataSource)
+      const getUserByIdUseCase = createFindUserByIdUseCase(userRepository);
       const user = await getUserByIdUseCase.execute(1);
       setUser(user);
     };
 
-    fetchData().catch();
+    fetchData().catch(noop);
   }, []);
 
   return (

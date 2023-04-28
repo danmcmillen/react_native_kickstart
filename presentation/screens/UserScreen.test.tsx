@@ -1,43 +1,60 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react-native';
-import { UserScreen } from './UserScreen';
-import { FindUserByIdUseCase } from '../../domain/usecases/FindUserByIdUseCase';
-import { User } from '../../domain/entities/User';
+import { render, waitFor } from '@testing-library/react-native';
 
-// Mock FindUserByIdUseCase
+import { UserScreen } from "./UserScreen";
+import createFindUserByIdUseCase from '../../domain/usecases/FindUserByIdUseCase';
+
 jest.mock('../../domain/usecases/FindUserByIdUseCase');
 
 describe('UserScreen', () => {
-  beforeEach(() => {
-    // Clear all instances and calls to the mock constructor and methods
-    (FindUserByIdUseCase as jest.Mock).mockClear();
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 
-  it('renders loading state and user data when loaded', async () => {
-    const mockUser: User = {
+  it('renders loading state initially', () => {
+    const mockUser = {
       id: 1,
       name: 'John Doe',
       email: 'john.doe@example.com',
     };
 
-    // Set up mock implementation
-    (FindUserByIdUseCase as jest.Mock).mockImplementationOnce(() => {
-      return {
-        execute: () => Promise.resolve(mockUser),
-      };
+    (createFindUserByIdUseCase as jest.Mock).mockReturnValue({
+      execute: jest.fn().mockResolvedValue(mockUser),
     });
 
-    // Render the component
     const { getByText } = render(<UserScreen />);
 
-    // Verify that the loading state is displayed
     expect(getByText('Loading...')).toBeTruthy();
+  });
 
-    // Wait for the user data to be loaded
-    await waitFor(() => screen.getByText(`Name: ${mockUser.name}`));
+  it('renders user data when user is fetched', async () => {
+    const mockUser = {
+      id: 1,
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+    };
 
-    // Verify that the user data is displayed
-    expect(getByText(`Name: ${mockUser.name}`)).toBeTruthy();
-    expect(getByText(`Email: ${mockUser.email}`)).toBeTruthy();
+    (createFindUserByIdUseCase as jest.Mock).mockReturnValue({
+      execute: jest.fn().mockResolvedValue(mockUser),
+    });
+
+    const { getByText } = render(<UserScreen />);
+
+    await waitFor(() => {
+      expect(getByText(`Name: ${mockUser.name}`)).toBeTruthy();
+      expect(getByText(`Email: ${mockUser.email}`)).toBeTruthy();
+    });
+  });
+
+  it('handles errors when fetching user data', async () => {
+    (createFindUserByIdUseCase as jest.Mock).mockReturnValue({
+      execute: jest.fn().mockRejectedValue(new Error('Network error')),
+    });
+
+    const { getByText } = render(<UserScreen />);
+
+    await waitFor(() => {
+      expect(getByText('Loading...')).toBeTruthy();
+    });
   });
 });

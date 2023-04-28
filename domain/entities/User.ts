@@ -1,10 +1,9 @@
-export class User {
+type User = Readonly<{
   id: number;
   name: string;
   email: string;
-  constructor(id: number, name: string, email: string) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-  }
-}
+}>
+
+const createUser = (id: number, name: string, email: string): User => ({ id, name, email });
+
+export {User, createUser};

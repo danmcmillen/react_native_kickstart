@@ -1,5 +1,5 @@
-import { FindUserByIdUseCase } from './FindUserByIdUseCase';
-import { mockUserRepository } from '../repositories/UserRepository.test';
+import createFindUserByIdUseCase, { FindUserByIdUseCase } from './FindUserByIdUseCase';
+import { mockUserRepository } from '../repositories/IUserRepository.test';
 
 describe('GetUserByIdUseCase', () => {
   it('should get user by id', async () => {
@@ -8,7 +8,7 @@ describe('GetUserByIdUseCase', () => {
     const expectedUserData = { id: userId, name: 'John Doe' };
     const userRepository = mockUserRepository;
     userRepository.findUserById = jest.fn().mockResolvedValue(expectedUserData);
-    const getUserByIdUseCase = new FindUserByIdUseCase(userRepository);
+    const getUserByIdUseCase = createFindUserByIdUseCase(userRepository);
 
     // Act
     const userData = await getUserByIdUseCase.execute(userId);
@@ -23,7 +23,7 @@ describe('GetUserByIdUseCase', () => {
     const userId = 123;
     const userRepository = mockUserRepository;
     userRepository.findUserById = jest.fn().mockResolvedValue(null);
-    const getUserByIdUseCase = new FindUserByIdUseCase(userRepository);
+    const getUserByIdUseCase = createFindUserByIdUseCase(userRepository);
 
     // Act
     const userData = await getUserByIdUseCase.execute(userId);

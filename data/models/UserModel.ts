@@ -1,14 +1,22 @@
-import { User } from '../../domain/entities/User';
-export class UserModel {
-  private readonly id: number;
-  private readonly name: string;
-  private readonly email: string;
-  constructor(id: number, name: string, email: string) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-  }
-  toEntity() {
-    return new User(this.id, this.name, this.email);
-  }
-}
+import { createUser, User } from "../../domain/entities/User";
+
+type UserModel = Readonly<{
+  id: number;
+  name: string;
+  email: string;
+}>;
+
+const createUserModel = (
+  id: number,
+  name: string,
+  email: string
+): UserModel => ({
+  id,
+  name,
+  email,
+});
+
+const toEntity = (userModel: UserModel): User =>
+  createUser(userModel.id, userModel.name, userModel.email);
+
+export { UserModel, createUserModel, toEntity };

@@ -1,10 +1,17 @@
-import { UserRepository } from '../repositories/UserRepository';
-export class FindUserByIdUseCase {
-  private userRepository: UserRepository;
-  constructor(userRepository: UserRepository) {
-    this.userRepository = userRepository;
+import { IUserRepository } from '../repositories/IUserRepository';
+import { User } from "../entities/User";
+
+export type FindUserByIdUseCase = {
+  execute: (id: number) => Promise<User | null>;
+}
+
+const createFindUserByIdUseCase = (userRepository: IUserRepository): FindUserByIdUseCase  => {
+  const execute = async (id: number) => {
+    return await userRepository.findUserById(id);
   }
-  async execute(id: number) {
-    return await this.userRepository.findUserById(id);
+  return {
+    execute
   }
 }
+
+export default  createFindUserByIdUseCase;
