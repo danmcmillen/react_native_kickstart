@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Brush Teeth",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Take a Shower",
+      "completed": false
+    },
+    {
+      "title": "Get a Job",
+      "completed": false,
+      "id": 3
+    }
+  ]
+}
