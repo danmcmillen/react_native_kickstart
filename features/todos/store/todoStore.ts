@@ -43,7 +43,7 @@ export const useTodoStore = create<TodoStore>((set) => ({
 
     if (todoToUpdate) {
       const result = await updateTodo(id, !todoToUpdate.completed);
-      handleApiResult<Todo, TodoStore>(result, set, (updatedTodo) => {
+      handleApiResult(result, set, (updatedTodo) => {
         set((state) => ({
           todos: state.todos.map((t) => (t.id === id ? updatedTodo : t)),
         }));

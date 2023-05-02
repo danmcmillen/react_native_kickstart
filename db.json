@@ -3,17 +3,17 @@
     {
       "id": 1,
       "title": "Brush Teeth",
-      "completed": true
+      "completed": false
     },
     {
       "id": 2,
       "title": "Take a Shower",
-      "completed": true
+      "completed": false
     },
     {
-      "id": 3,
-      "title": "Go to Work",
-      "completed": false
+      "title": "Get a Job",
+      "completed": false,
+      "id": 3
     }
   ]
 }

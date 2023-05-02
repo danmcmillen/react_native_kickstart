@@ -2,13 +2,17 @@ import { ApiError } from '../api/apiClient';
 
 type ApiResult<T> = T | ApiError;
 
+function isApiError(value: any): value is ApiError {
+  return value && typeof value.message === 'string' && typeof value.status === 'number';
+}
+
 export const handleApiResult = <T, S>(
   result: ApiResult<T>,
   set: (fn: (state: S) => Partial<S>) => void,
   onSuccess: (value: T) => void
 ): void => {
-  if ('message' in (result as ApiError)) {
-    set((state) => ({ ...state, error: result as ApiError }));
+  if (isApiError(result)) {
+    set((state) => ({ ...state, error: result }));
   } else {
     onSuccess(result as T);
   }
