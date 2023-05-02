@@ -1,38 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { UserScreen } from './presentation/screens/UserScreen';
-import { ServiceContext } from './configuration/context/ServiceContext';
-import { createCompositionRoot } from './configuration/context/compositionRoot';
+// src/App.tsx
+import React from 'react';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import TodoList from './features/todos/components/TodoList';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <UserScreen />
-      <StatusBar style="auto" />
-    </View>
-  );
-};
-
-const AppWithProvider = () => {
-  const compositionRoot = createCompositionRoot();
-  return (
-    <ServiceContext.Provider
-      value={{ userService: compositionRoot.userService }}
-    >
-      <App />
-    </ServiceContext.Provider>
+    <SafeAreaView style={styles.container}>
+      <TodoList />
+    </SafeAreaView>
   );
 };
 
 const white = '#fff';
-
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
     backgroundColor: white,
     flex: 1,
-    justifyContent: 'center',
+    paddingHorizontal: 16,
   },
 });
 
-export default AppWithProvider;
+export default App;
