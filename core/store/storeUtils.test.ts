@@ -1,5 +1,5 @@
-import { ApiError } from "../api/apiClient";
-import { handleApiResult } from "./storeUtils";
+import { ApiError } from '../api/apiClient';
+import { handleApiResult } from './storeUtils';
 
 interface TestState {
   value: number;
@@ -27,9 +27,7 @@ describe('handleApiResult', () => {
     handleApiResult<number, TestState>(result, set, onSuccess);
 
     expect(set).toHaveBeenCalledTimes(1);
-    expect(set).toHaveBeenCalledWith(
-      expect.any(Function)
-    );
+    expect(set).toHaveBeenCalledWith(expect.any(Function));
     expect(onSuccess).toHaveBeenCalledTimes(0);
 
     // Call the setState function with a test state

@@ -2,8 +2,13 @@ import { ApiError } from '../api/apiClient';
 
 type ApiResult<T> = T | ApiError;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isApiError(value: any): value is ApiError {
-  return value && typeof value.message === 'string' && typeof value.status === 'number';
+  return (
+    value &&
+    typeof value.message === 'string' &&
+    typeof value.status === 'number'
+  );
 }
 
 export const handleApiResult = <T, S>(

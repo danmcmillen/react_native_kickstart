@@ -41,9 +41,10 @@ export interface ApiError {
 export const handleApiError = (error: unknown): ApiError => {
   if (error instanceof Error && (error as AxiosError).response) {
     const axiosError = error as AxiosError;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore  @typescript-eslint/ban-ts-comment
-    return { message: axiosError.response?.data.message || axiosError.message, status: axiosError.response.status };
+    return {
+      message: axiosError.response?.data.message || axiosError.message,
+      status: axiosError.response.status,
+    };
   } else if (error instanceof Error) {
     return { message: error.message, status: 500 };
   } else {

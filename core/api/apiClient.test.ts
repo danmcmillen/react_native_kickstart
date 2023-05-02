@@ -13,7 +13,10 @@ describe('apiClient', () => {
     const responseData = { data: 'test' };
     mock.onGet('/test').reply(200, responseData);
 
-    const result = await request<{ data: string }>({ method: 'GET', url: '/test' });
+    const result = await request<{ data: string }>({
+      method: 'GET',
+      url: '/test',
+    });
 
     expect(result).toEqual(responseData);
   });
@@ -22,13 +25,21 @@ describe('apiClient', () => {
     const errorMessage = 'Request failed';
     mock.onGet('/test').reply(500, { message: errorMessage });
 
-    const result = await request<{ data: string }>({ method: 'GET', url: '/test' });
+    const result = await request<{ data: string }>({
+      method: 'GET',
+      url: '/test',
+    });
 
     expect(result).toEqual({ message: errorMessage, status: 500 });
   });
 
   it('should handle an Axios error', () => {
-    const error = new axios.AxiosError('Network error', undefined, undefined, null);
+    const error = new axios.AxiosError(
+      'Network error',
+      undefined,
+      undefined,
+      null
+    );
     const apiError: ApiError = handleApiError(error);
 
     expect(apiError).toEqual({ message: 'Network error', status: 500 });
@@ -38,6 +49,9 @@ describe('apiClient', () => {
     const error = 'Unknown error';
     const apiError: ApiError = handleApiError(error);
 
-    expect(apiError).toEqual({ message: 'An unknown error occurred.', status: 500 });
+    expect(apiError).toEqual({
+      message: 'An unknown error occurred.',
+      status: 500,
+    });
   });
 });
