@@ -1,23 +1,16 @@
-// src/App.tsx
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import TodoList from './features/todos/components/TodoList';
+import { ThemeProvider } from './core/theme/ThemeContext';
+import Container from './core/components/layout/Container';
+import TodoListScreen from './features/todos/screens/TodoListScreen';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <TodoList />
-    </SafeAreaView>
+    <ThemeProvider>
+      <Container>
+        <TodoListScreen />
+      </Container>
+    </ThemeProvider>
   );
 };
-
-const white = '#fff';
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: white,
-    flex: 1,
-    paddingHorizontal: 16,
-  },
-});
 
 export default App;

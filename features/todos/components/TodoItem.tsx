@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, Switch, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { useTodoStore } from '../store/todoStore';
-import { StyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
-import { TextStyle } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import CompletableText from '../../../core/components/elements/CompletableText';
+import { fontSizes, spacing } from '../../../core/theme/themes';
+import { RectButton } from 'react-native-gesture-handler';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { useTheme } from '../../../core/theme/ThemeContext';
 
 interface TodoItemProps {
   id: number;
@@ -11,27 +14,54 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
+  const { theme } = useTheme();
   const toggleTodo = useTodoStore((state) => state.toggleTodo);
   const deleteTodo = useTodoStore((state) => state.deleteTodo);
-  const titleStyle: StyleProp<TextStyle> = completed
-    ? { textDecorationLine: 'line-through' }
-    : {};
+  const renderRightActions = () => {
+    const onDelete = () => {
+      deleteTodo(id);
+    };
+
+    const deleteButtonStyle = {
+      ...styles.deleteButton,
+      backgroundColor: theme.danger,
+    };
+    const deleteTextStyle = { ...styles.deleteText, color: theme.dangerText };
+
+    return (
+      <RectButton onPress={onDelete} style={deleteButtonStyle}>
+        <Text style={deleteTextStyle}>Delete</Text>
+      </RectButton>
+    );
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={titleStyle}>{title}</Text>
-      <Switch value={completed} onValueChange={() => toggleTodo(id)} />
-      <TouchableOpacity onPress={() => deleteTodo(id)}>
-        <Text>Delete</Text>
-      </TouchableOpacity>
-    </View>
+    <Swipeable renderRightActions={renderRightActions}>
+      <View style={styles.container}>
+        <CompletableText
+          text={title}
+          onPress={() => toggleTodo(id)}
+          completed={completed}
+        />
+      </View>
+    </Swipeable>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    paddingVertical: spacing.small,
+  },
+  deleteButton: {
+    alignItems: 'center',
+    height: '100%',
+    justifyContent: 'center',
+    width: 100,
+  },
+  deleteText: {
+    fontSize: fontSizes.small,
   },
 });
+
 export default TodoItem;
