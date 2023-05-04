@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "title": "Go Home",
-      "completed": false,
-      "id": 4
-    },
-    {
       "title": "Pick up sticks",
       "completed": false,
       "id": 5

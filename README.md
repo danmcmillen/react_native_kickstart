@@ -1,3 +1,21 @@
-# react_native_kickstart
+# React Native Kickstart
 
-This React Native project kickstart template emphasizes clean architecture, robust design patterns, and industry best practices. It also includes opinionated configurations, conventions, and libraries.
+# Introductions
+
+# Application Overview
+
+# Project Configuration
+
+# Components And Styling
+
+# API Layer
+
+# State Management
+
+# Error Handling
+
+# Testing
+
+# Localization
+
+# Deployment
