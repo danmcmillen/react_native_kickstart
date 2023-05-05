@@ -1,8 +1,8 @@
-// api/apiClient.js
+import config from '../configuration/config';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const apiClient = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: config.apiUrl,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -42,7 +42,11 @@ export const handleApiError = (error: unknown): ApiError => {
   if (error instanceof Error && (error as AxiosError).response) {
     const axiosError = error as AxiosError;
     return {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       message: axiosError.response?.data.message || axiosError.message,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       status: axiosError.response.status,
     };
   } else if (error instanceof Error) {
