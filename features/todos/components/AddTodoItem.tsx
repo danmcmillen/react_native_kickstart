@@ -4,6 +4,7 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import TouchableText from '../../../core/components/elements/TouchableText';
 import { spacing } from '../../../core/theme/themes';
 import { useTheme } from '../../../core/theme/ThemeContext';
+import i18n from '../../../translations/localization';
 
 const AddTodoItem = () => {
   const { theme } = useTheme();
@@ -22,11 +23,11 @@ const AddTodoItem = () => {
         multiline
         value={newTodo}
         onChangeText={setNewTodo}
-        placeholder="What needs to be done?"
+        placeholder={i18n.t('addTodoPlaceholder')}
         style={{ ...theme.textInput }}
         placeholderTextColor={theme.secondary}
       />
-      <TouchableText text={'Add'} onPress={handleAddTodo} />
+      <TouchableText text={i18n.t('addTodoButton')} onPress={handleAddTodo} />
     </View>
   );
 };

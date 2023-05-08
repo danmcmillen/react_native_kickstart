@@ -4,6 +4,7 @@ import StyledText from '../../../core/components/elements/StyledText';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import { spacing } from '../../../core/theme/themes';
 import AddTodoItem from '../components/AddTodoItem';
+import i18n from '../../../translations/localization';
 
 const TodoListScreen = () => {
   return (
@@ -12,7 +13,7 @@ const TodoListScreen = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <View style={styles.title}>
-        <StyledText name={'Today'} type={'h1'} />
+        <StyledText name={i18n.t('todoTitle')} type={'h1'} />
       </View>
       <TodoList />
       <AddTodoItem />
