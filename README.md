@@ -23,10 +23,10 @@ Core includes the following items:
 Features should follow this structure:
 
 - Feature name
-    - **API**: Specific API calls required for the feature's functionality.
-    - **Components**: UI components that handle the feature's UI and behavior, which can leverage core components.
-    - **Screens**: Screen definitions for the feature, typically container components that represent entire screens.
-    - **Store**: State management for the feature's functionality.
+  - **API**: Specific API calls required for the feature's functionality.
+  - **Components**: UI components that handle the feature's UI and behavior, which can leverage core components.
+  - **Screens**: Screen definitions for the feature, typically container components that represent entire screens.
+  - **Store**: State management for the feature's functionality.
 
 # Project Configuration 🛠️
 
@@ -146,9 +146,9 @@ each feature and locale that the application supports.
 - [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react): - TypeScript
   definitions for React.
 - [@types/react-test-renderer](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-test-renderer):
-    - TypeScript definitions for react-test-renderer.
+  - TypeScript definitions for react-test-renderer.
 - [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin):
-    - An ESLint plugin that provides lint rules specifically for TypeScript code.
+  - An ESLint plugin that provides lint rules specifically for TypeScript code.
 - [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/parser): - A
   parser that allows ESLint to lint TypeScript code.
 - [axios-mock-adapter](https://github.com/ctimmerm/axios-mock-adapter): - A library for mocking axios requests
