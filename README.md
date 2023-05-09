@@ -118,6 +118,9 @@ each feature and locale that the application supports.
   more native touch system for gesture handling in React Native applications.
 - [zustand](https://github.com/pmndrs/zustand): - A lightweight and straightforward state management library for
   React applications.
+- [react-native-web](https://github.com/necolas/react-native-web): - A library that brings React Native components and APIs to the web, allowing you to build web apps with React Native components and styles.
+- [react-dom](https://reactjs.org/docs/react-dom.html): - The entry point for the React DOM library, which provides DOM-specific methods to render and manipulate React components in the browser.
+- [@expo/webpack-config](https://github.com/expo/expo-cli/tree/master/packages/webpack-config): - The default Webpack configuration for Expo web projects, which handles bundling and optimization of JavaScript and other assets for web applications built using Expo.
 
 ## Dev Dependencies
 

@@ -1,19 +1,19 @@
 {
   "todos": [
     {
-      "title": "Pick up sticks",
-      "completed": false,
-      "id": 5
+      "title": "Wake Up",
+      "completed": true,
+      "id": 1
     },
     {
-      "title": "Find a Job",
+      "title": "Eat Breakfast",
       "completed": false,
-      "id": 6
+      "id": 2
     },
     {
-      "title": "Sleep",
+      "title": "Walk the Dog",
       "completed": false,
-      "id": 7
+      "id": 3
     }
   ]
 }
