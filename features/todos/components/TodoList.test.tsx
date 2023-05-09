@@ -20,7 +20,7 @@ describe('TodoList', () => {
     return render(
       <ThemeProvider>
         <TodoList />
-      </ThemeProvider>,
+      </ThemeProvider>
     );
   };
 
