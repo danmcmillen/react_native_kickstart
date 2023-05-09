@@ -73,7 +73,7 @@ package and some reference patterns in the features directory.
 
 [Zustand](https://github.com/pmndrs/zustand) is used for global state management, as it is simple and lightweight
 compared to other frameworks. The [Context API](https://react.dev/reference/react/useContext)
-and [state hooks](https://react.dev/reference/react/useState can also be used. For global shared state, prefer Zustand
+and [state hooks](https://react.dev/reference/react/useState) can also be used. For global shared state, prefer Zustand
 stores or the Context API. For component-specific state, use state hooks.
 
 # Error Handling
@@ -85,7 +85,7 @@ using [error boundaries](https://react.dev/reference/react/Component#catching-re
 # Testing
 
 The project employs unit testing with [Jest](https://jestjs.io/)
-and [react-test-renderer](https://reactjs.org/docs/test-renderer.html). Test files are colocated with source files. Code
+and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/). Test files are co-located with source files. Code
 coverage is generated and should be maintained at a high level.
 
 # Localization
