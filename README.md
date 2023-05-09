@@ -4,7 +4,8 @@ This is a React Native project to kick start application development, it is base
 clean and solid principles, industry best practices, as well opinionated configurations, conventions, and libraries
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://github.com/danmcmillen/react_native_kickstart/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/danmcmillen/react_native_kickstart/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/danmcmillen/react_native_kickstart/pulls)
+[![CI/CD](https://github.com/danmcmillen/react_native_kickstart/actions/workflows/ci-cd.yml/badge.svg?branch=main)](https://github.com/danmcmillen/react_native_kickstart/actions/workflows/ci-cd.yml)
 
 # Application Overview 👀
 
