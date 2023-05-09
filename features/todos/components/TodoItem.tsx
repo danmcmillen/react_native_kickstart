@@ -7,7 +7,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { useTheme } from '../../../core/theme/ThemeContext';
 
-interface TodoItemProps {
+export interface TodoItemProps {
   id: number;
   title: string;
   completed: boolean;
@@ -36,7 +36,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
   };
 
   return (
-    <Swipeable renderRightActions={renderRightActions}>
+    <Swipeable renderRightActions={renderRightActions} testID="swipeable">
       <View style={styles.container}>
         <CompletableText
           text={title}

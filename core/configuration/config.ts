@@ -8,14 +8,18 @@ interface Config {
   apiUrl: string;
 }
 
-let config: Config;
+const getConfig = (): Config => {
+  let config: Config;
 
-switch (ENV) {
-  case 'prod':
-    config = prodConfig;
-    break;
-  default:
-    config = devConfig;
-}
+  switch (ENV) {
+    case 'prod':
+      config = prodConfig;
+      break;
+    default:
+      config = devConfig;
+  }
 
-export default config;
+  return config;
+};
+
+export default getConfig();

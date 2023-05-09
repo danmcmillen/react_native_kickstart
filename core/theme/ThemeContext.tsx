@@ -14,6 +14,7 @@ export const useTheme = () => useContext(ThemeContext);
 
 interface ThemeProviderProps {
   children: React.ReactNode;
+  testID?: string;
 }
 export const ThemeProvider = (props: ThemeProviderProps) => {
   const colorScheme = useColorScheme();

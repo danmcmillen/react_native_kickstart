@@ -6,8 +6,8 @@ import TodoListScreen from './features/todos/screens/TodoListScreen';
 const App = () => {
   return (
     <ThemeProvider>
-      <Container>
-        <TodoListScreen />
+      <Container testID={'container'}>
+        <TodoListScreen testID={'todoListScreen'} />
       </Container>
     </ThemeProvider>
   );

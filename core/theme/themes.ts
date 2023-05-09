@@ -1,6 +1,6 @@
 export type Theme = typeof lightTheme;
 
-const paletteDark = {
+export const paletteDark = {
   background: '#000000',
   primary: '#FFFFFF',
   secondary: '#9C9C9C',
@@ -8,7 +8,7 @@ const paletteDark = {
   dangerText: '#FFFFFF',
 };
 
-const paletteLight = {
+export const paletteLight = {
   background: '#FFFFFF',
   primary: '#000000',
   secondary: '#9C9C9C',
