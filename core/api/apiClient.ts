@@ -2,7 +2,7 @@ import config from '../configuration/config';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const apiClient = axios.create({
-  baseURL: config.apiUrl,
+  baseURL: config().apiUrl,
   headers: {
     'Content-Type': 'application/json',
   },

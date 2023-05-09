@@ -2,17 +2,17 @@
   "todos": [
     {
       "title": "Pick up sticks",
-      "completed": true,
+      "completed": false,
       "id": 5
     },
     {
       "title": "Find a Job",
-      "completed": true,
+      "completed": false,
       "id": 6
     },
     {
       "title": "Sleep",
-      "completed": true,
+      "completed": false,
       "id": 7
     }
   ]

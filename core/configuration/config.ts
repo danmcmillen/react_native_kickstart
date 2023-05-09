@@ -22,4 +22,4 @@ const getConfig = (): Config => {
   return config;
 };
 
-export default getConfig();
+export default getConfig;

@@ -1,9 +1,9 @@
-# React Native Kickstart
+# React Native Kickstart 🚀⚛️
 
 This is a React Native project to kick start application development, it is based on expo and typescript, it follows
 clean and solid principles, industry best practices, as well opinionated configurations, conventions, and libraries
 
-# Application Overview
+# Application Overview 👀
 
 The project is designed with a modular structure, consisting of a core package that can be utilized by every feature,
 and a features package that is organized based on individual feature types. This approach allows for the reuse of core
@@ -25,13 +25,13 @@ Features should follow this structure:
   - **Screens**: Screen definitions for the feature, typically container components that represent entire screens.
   - **Store**: State management for the feature's functionality.
 
-# Project Configuration
+# Project Configuration 🛠️
 
 This project is built using [Expo](https://expo.dev/), a platform for developing, building, and deploying React Native
 apps. It also utilizes [TypeScript](https://www.typescriptlang.org/) for static typing, [ESLint](https://eslint.org/)
 for linting, and [Prettier](https://prettier.io/) for code formatting.
 
-A mock API server is configured for rapid development and testing. The `mock-api` directory contains a sample database that
+A mock API server is configured for rapid development and testing. The `json-server` directory contains a sample database that
 is parsed into an API, which can be utilized during development. Unit testing is set up
 using [Jest](https://jestjs.io/), and [Husky](https://typicode.github.io/husky) ensures that committed code is
 lint-free, formatted, and passes all unit tests.
@@ -57,44 +57,44 @@ Below is a list of the default scripts that can be run, along with descriptions 
 - `mock-api`: Starts the mock API server using [json-server](https://www.npmjs.com/package/json-server) and watches
   the `mock/db.json` file on port 5000.
 
-# Components and Styling
+# Components and Styling 🎨
 
 Reusable components should utilize the core theming package, which is based on light and dark themes. If you follow
 the [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methodology and have an interface inventory,
 this pattern can be extended. All styles should use the [StyleSheet API](https://reactnative.dev/docs/stylesheet) with
 no inline styles (unless they need to be computed).
 
-# API Layer
+# API Layer 📡
 
 This project uses [Axios](https://axios-http.com/) for making network calls, with helper methods located in the core
 package and some reference patterns in the features directory.
 
-# State Management
+# State Management 💾
 
 [Zustand](https://github.com/pmndrs/zustand) is used for global state management, as it is simple and lightweight
 compared to other frameworks. The [Context API](https://react.dev/reference/react/useContext)
 and [state hooks](https://react.dev/reference/react/useState) can also be used. For global shared state, prefer Zustand
 stores or the Context API. For component-specific state, use state hooks.
 
-# Error Handling
+# Error Handling 🚫
 
 Basic error handling is set up with Zustand stores wrapping API error results and setting an error response in the
 store. This is one approach to handling and mapping API errors. Unexpected errors should be managed
 using [error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
 
-# Testing
+# Testing 🧪
 
 The project employs unit testing with [Jest](https://jestjs.io/)
 and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/). Test files are co-located with source files. Code
 coverage is generated and should be maintained at a high level.
 
-# Localization
+# Localization 🌍
 
 Localization is achieved using [i18n-js](https://github.com/fnando/i18n-js)
 and [Expo Localization](https://docs.expo.dev/versions/latest/sdk/localization/). Translations should be created for
 each feature and locale that the application supports.
 
-# Application Dependencies
+# Application Dependencies 🔌
 
 ## Dependencies
 

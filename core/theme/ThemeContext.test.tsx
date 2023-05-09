@@ -10,6 +10,14 @@ jest.mock('react-native', () => ({
   useColorScheme: jest.fn(),
 }));
 
+jest.mock('react-native/Libraries/Settings/Settings', () => ({
+  getConstants: () => ({
+    settings: {
+      AppleLocale: 'en_US',
+    },
+  }),
+}));
+
 const TestComponent = () => {
   const { theme } = useTheme();
   return <View testID="theme">{JSON.stringify(theme)}</View>;
