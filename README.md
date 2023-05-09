@@ -3,6 +3,9 @@
 This is a React Native project to kick start application development, it is based on expo and typescript, it follows
 clean and solid principles, industry best practices, as well opinionated configurations, conventions, and libraries
 
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://github.com/danmcmillen/react_native_kickstart/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/danmcmillen/react_native_kickstart/pulls)
+
 # Application Overview 👀
 
 The project is designed with a modular structure, consisting of a core package that can be utilized by every feature,
@@ -20,10 +23,10 @@ Core includes the following items:
 Features should follow this structure:
 
 - Feature name
-  - **API**: Specific API calls required for the feature's functionality.
-  - **Components**: UI components that handle the feature's UI and behavior, which can leverage core components.
-  - **Screens**: Screen definitions for the feature, typically container components that represent entire screens.
-  - **Store**: State management for the feature's functionality.
+    - **API**: Specific API calls required for the feature's functionality.
+    - **Components**: UI components that handle the feature's UI and behavior, which can leverage core components.
+    - **Screens**: Screen definitions for the feature, typically container components that represent entire screens.
+    - **Store**: State management for the feature's functionality.
 
 # Project Configuration 🛠️
 
@@ -31,7 +34,8 @@ This project is built using [Expo](https://expo.dev/), a platform for developing
 apps. It also utilizes [TypeScript](https://www.typescriptlang.org/) for static typing, [ESLint](https://eslint.org/)
 for linting, and [Prettier](https://prettier.io/) for code formatting.
 
-A mock API server is configured for rapid development and testing. The `json-server` directory contains a sample database that
+A mock API server is configured for rapid development and testing. The `json-server` directory contains a sample
+database that
 is parsed into an API, which can be utilized during development. Unit testing is set up
 using [Jest](https://jestjs.io/), and [Husky](https://typicode.github.io/husky) ensures that committed code is
 lint-free, formatted, and passes all unit tests.
@@ -85,7 +89,8 @@ using [error boundaries](https://react.dev/reference/react/Component#catching-re
 # Testing 🧪
 
 The project employs unit testing with [Jest](https://jestjs.io/)
-and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/). Test files are co-located with source files. Code
+and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/). Test files are co-located
+with source files. Code
 coverage is generated and should be maintained at a high level.
 
 # Localization 🌍
@@ -118,9 +123,13 @@ each feature and locale that the application supports.
   more native touch system for gesture handling in React Native applications.
 - [zustand](https://github.com/pmndrs/zustand): - A lightweight and straightforward state management library for
   React applications.
-- [react-native-web](https://github.com/necolas/react-native-web): - A library that brings React Native components and APIs to the web, allowing you to build web apps with React Native components and styles.
-- [react-dom](https://reactjs.org/docs/react-dom.html): - The entry point for the React DOM library, which provides DOM-specific methods to render and manipulate React components in the browser.
-- [@expo/webpack-config](https://github.com/expo/expo-cli/tree/master/packages/webpack-config): - The default Webpack configuration for Expo web projects, which handles bundling and optimization of JavaScript and other assets for web applications built using Expo.
+- [react-native-web](https://github.com/necolas/react-native-web): - A library that brings React Native components and
+  APIs to the web, allowing you to build web apps with React Native components and styles.
+- [react-dom](https://reactjs.org/docs/react-dom.html): - The entry point for the React DOM library, which provides
+  DOM-specific methods to render and manipulate React components in the browser.
+- [@expo/webpack-config](https://github.com/expo/expo-cli/tree/master/packages/webpack-config): - The default Webpack
+  configuration for Expo web projects, which handles bundling and optimization of JavaScript and other assets for web
+  applications built using Expo.
 
 ## Dev Dependencies
 
@@ -137,9 +146,9 @@ each feature and locale that the application supports.
 - [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react): - TypeScript
   definitions for React.
 - [@types/react-test-renderer](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-test-renderer):
-  - TypeScript definitions for react-test-renderer.
+    - TypeScript definitions for react-test-renderer.
 - [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin):
-  - An ESLint plugin that provides lint rules specifically for TypeScript code.
+    - An ESLint plugin that provides lint rules specifically for TypeScript code.
 - [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/parser): - A
   parser that allows ESLint to lint TypeScript code.
 - [axios-mock-adapter](https://github.com/ctimmerm/axios-mock-adapter): - A library for mocking axios requests
